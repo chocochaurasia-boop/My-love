@@ -5,102 +5,144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Save Prothomit ❤️</title>
+
 <style>
-* { box-sizing:border-box; }
+* { box-sizing: border-box; }
+
 body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#26002e,#790044,#ed528b);
-  color:white;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:18px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#26002e,#790044,#ed528b);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
 }
+
 .game {
-  width:100%;
-  max-width:440px;
-  background:#ffffff18;
-  border:1px solid #ffffff45;
-  border-radius:25px;
-  padding:26px 21px;
-  text-align:center;
-  box-shadow:0 15px 45px #0005;
-  backdrop-filter:blur(12px);
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff18;
+  border: 1px solid #ffffff45;
+  border-radius: 25px;
+  padding: 26px 21px;
+  text-align: center;
+  box-shadow: 0 15px 45px #0005;
+  backdrop-filter: blur(12px);
 }
-h1 { font-size:29px; margin:8px 0; }
-h2 { font-size:23px; }
-p { line-height:1.6; }
-.heart { font-size:65px; animation:pulse 1s infinite; }
+
+h1 { font-size: 29px; }
+h2 { font-size: 23px; }
+
+p { line-height: 1.6; }
+
+.heart {
+  font-size: 65px;
+  animation: pulse 1s infinite;
+}
+
 @keyframes pulse {
-  50% { transform:scale(1.17); }
+  50% { transform: scale(1.17); }
 }
+
 button {
-  width:100%;
-  border:0;
-  border-radius:14px;
-  padding:15px;
-  margin-top:12px;
-  background:#ff78ae;
-  color:#4c0030;
-  font-weight:bold;
-  font-size:16px;
-  cursor:pointer;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 15px;
+  margin-top: 12px;
+  background: #ff78ae;
+  color: #4c0030;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
 }
-button:hover { background:#ffb4d2; }
-input,textarea {
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  border:0;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
+
+button:hover { background: #ffb4d2; }
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
 }
-textarea { resize:vertical; min-height:95px; }
+
+textarea {
+  resize: vertical;
+  min-height: 95px;
+}
+
 .progress {
-  background:#ffffff40;
-  height:9px;
-  border-radius:10px;
-  margin:20px 0;
+  background: #ffffff40;
+  height: 9px;
+  border-radius: 10px;
+  margin: 20px 0;
 }
+
 #bar {
-  height:9px;
-  width:0%;
-  background:#ffb0d0;
-  border-radius:10px;
-  transition:.4s;
+  height: 9px;
+  width: 0%;
+  background: #ffb0d0;
+  border-radius: 10px;
+  transition: .4s;
 }
-.small { font-size:13px; opacity:.8; }
-.option { background:#fff1f7; color:#75003e; }
-.hidden { display:none; }
-#feedback { min-height:24px; }
+
+.small {
+  font-size: 13px;
+  opacity: .8;
+}
+
+.option {
+  background: #fff1f7;
+  color: #75003e;
+}
+
+#feedback { min-height: 24px; }
 </style>
 </head>
+
 <body>
 
 <div class="game">
+
   <div class="heart">💗</div>
+
   <h1>SAVE PROTHOMIT</h1>
   <p>A little adventure made with love.</p>
 
-  <div class="progress"><div id="bar"></div></div>
+  <div class="progress">
+    <div id="bar"></div>
+  </div>
 
   <div id="screen">
+
     <h2>Welcome, Ankita Nandy! 🌸</h2>
+
     <p>
       Oh no! Prothomit is trapped inside the Love Castle!
       Only one special person can complete these missions.
     </p>
-    <p>Are you ready to begin your adventure?</p>
-    <button onclick="start()">START MY MISSION 💕</button>
-    <p class="small">A tiny game made by Prothomit Roy.</p>
-  </div>
 
+    <p>Are you ready to begin your adventure?</p>
+
+    <button onclick="start()">
+      START MY MISSION 💕
+    </button>
+
+    <p class="small">
+      A tiny game made by Prothomit Roy.
+    </p>
+
+  </div>
 </div>
 
 <script>
+
 let level = 0;
 let answers = {};
 
@@ -116,39 +158,69 @@ function start() {
   showTyping();
 }
 
+// MISSION 1
+
 function showTyping() {
   progress();
+
   game.innerHTML = `
     <h2>MISSION 1 💌</h2>
+
     <p>Imagine Prothomit is sitting in front of you.</p>
+
     <p><b>What would you tell him right now?</b></p>
-    <textarea id="answer" placeholder="Write something from your heart..."></textarea>
-    <button onclick="saveTyping()">SEND YOUR MESSAGE ❤️</button>
+
+    <textarea id="answer"
+      placeholder="Write something from your heart...">
+    </textarea>
+
+    <button onclick="saveTyping()">
+      SEND YOUR MESSAGE ❤️
+    </button>
+
     <div id="feedback"></div>
   `;
 }
 
 function saveTyping() {
   let a = document.getElementById("answer").value.trim();
+
   if (!a) {
     document.getElementById("feedback").innerText =
       "Write a little something first! 💗";
     return;
   }
+
   answers.message = a;
   level = 2;
   showPuzzle();
 }
 
+// MISSION 2
+
 function showPuzzle() {
   progress();
+
   game.innerHTML = `
     <h2>MISSION 2 🧩</h2>
+
     <p>Choose your favourite kind of date!</p>
-    <button class="option" onclick="choose('Sunset together 🌅')">Sunset together 🌅</button>
-    <button class="option" onclick="choose('Long walk and talking 🚶')">Long walk and talking 🚶</button>
-    <button class="option" onclick="choose('Movie and snacks 🍿')">Movie and snacks 🍿</button>
-    <button class="option" onclick="choose('Anything, as long as we are together 💗')">Anything together 💗</button>
+
+    <button class="option" onclick="choose('Sunset together 🌅')">
+      Sunset together 🌅
+    </button>
+
+    <button class="option" onclick="choose('Long walk and talking 🚶')">
+      Long walk and talking 🚶
+    </button>
+
+    <button class="option" onclick="choose('Movie and snacks 🍿')">
+      Movie and snacks 🍿
+    </button>
+
+    <button class="option" onclick="choose('Anything, as long as we are together 💗')">
+      Anything together 💗
+    </button>
   `;
 }
 
@@ -158,82 +230,197 @@ function choose(choice) {
   showCode();
 }
 
+// MISSION 3
+
 function showCode() {
   progress();
+
   game.innerHTML = `
     <h2>MISSION 3 🔐</h2>
+
     <p>Unlock the secret name!</p>
-    <div style="font-size:35px;letter-spacing:8px">A N K I T A</div>
+
+    <div style="font-size:35px;letter-spacing:8px">
+      A N K I T A
+    </div>
+
     <p>Hint: The name of the girl playing this game!</p>
+
     <input id="code" placeholder="Enter the secret name">
-    <button onclick="checkCode()">UNLOCK ❤️</button>
+
+    <button onclick="checkCode()">
+      UNLOCK ❤️
+    </button>
+
     <div id="feedback"></div>
   `;
 }
 
 function checkCode() {
   let value = document.getElementById("code").value.trim();
+
   if (value.toUpperCase() !== "ANKITA") {
     document.getElementById("feedback").innerText =
       "Oops! Try again, secret hero! 💕";
     return;
   }
+
   level = 4;
   showFinal();
 }
 
+// FINAL MISSION
+
 function showFinal() {
   progress();
+
   game.innerHTML = `
     <h2>FINAL MISSION 🏰</h2>
+
     <div class="heart">💖</div>
+
     <p>You have reached the Love Castle!</p>
+
     <p><b>One last question...</b></p>
+
     <p>Would you like to send Prothomit a little love message?</p>
-    <textarea id="finalMessage" placeholder="Your final message to Prothomit..."></textarea>
-    <button onclick="rescue()">RESCUE PROTHOMIT 💗</button>
+
+    <textarea id="finalMessage"
+      placeholder="Your final message to Prothomit...">
+    </textarea>
+
+    <button onclick="rescue()">
+      RESCUE PROTHOMIT 💗
+    </button>
   `;
 }
 
+// RESCUE SCREEN
+
 function rescue() {
+
   let msg = document.getElementById("finalMessage").value.trim();
+
   answers.final = msg || "You are special to me! ❤️";
+
   progress();
 
   game.innerHTML = `
     <div class="heart">💞</div>
+
     <h1>MISSION COMPLETE!</h1>
+
     <h2>PROTHOMIT HAS BEEN RESCUED!</h2>
+
     <p>Congratulations, Ankita Nandy! 🌹</p>
+
     <hr style="border-color:#ffffff50">
+
     <h2>A MESSAGE FOR YOU</h2>
+
     <p>
       Dear Ankita,<br><br>
+
       This little game has only one purpose:
       to remind you that you are special.
+
       Every little moment, every smile and every memory
       matters to me.
+
       <br><br>
+
       No game can measure love, and you never have
       to prove anything. ❤️
+
       <br><br>
+
       With love,<br>
       <b>Prothomit Roy</b>
     </p>
+
     <p><b>Your mission answers:</b></p>
+
     <p>💌 ${escapeHTML(answers.message)}</p>
+
     <p>🌅 ${escapeHTML(answers.date)}</p>
+
     <p>💕 ${escapeHTML(answers.final)}</p>
-    <button onclick="location.reload()">PLAY AGAIN 🔄</button>
+
+    <button onclick="shareAnswers()">
+      💌 SEND MY ANSWERS TO PROTHOMIT
+    </button>
+
+    <button onclick="location.reload()">
+      PLAY AGAIN 🔄
+    </button>
   `;
 }
 
-function escapeHTML(text) {
-  return String(text).replace(/[&<>"']/g, c => ({
-    '&':'&amp;', '<':'&lt;', '>':'&gt;',
-    '"':'&quot;', "'":'&#39;'
-  })[c]);
+// WHATSAPP SHARING
+
+async function shareAnswers() {
+
+  const message = `💗 ANKITA'S LOVE MISSION 💗
+
+From: Ankita Nandy
+To: Prothomit Roy
+
+💌 Her romantic message:
+${answers.message}
+
+🌸 Her favourite date:
+${answers.date}
+
+❤️ Her final message:
+${answers.final}
+
+MISSION COMPLETED!`;
+
+  if (navigator.share) {
+
+    try {
+
+      await navigator.share({
+        title: "Ankita's Love Mission",
+        text: message
+      });
+
+    } catch (error) {
+
+      if (error.name !== "AbortError") {
+
+        window.location.href =
+          "https://wa.me/?text=" +
+          encodeURIComponent(message);
+
+      }
+    }
+
+  } else {
+
+    window.location.href =
+      "https://wa.me/?text=" +
+      encodeURIComponent(message);
+
+  }
 }
+
+// SECURITY: ESCAPE USER TEXT
+
+function escapeHTML(text) {
+
+  return String(text).replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[c]);
+
+}
+
 </script>
+
 </body>
 </html>
+
